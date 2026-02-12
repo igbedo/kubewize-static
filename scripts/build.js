@@ -49,6 +49,7 @@ mkdirp(out);
 // Copy assets and partials
 copyDir(path.join(src, "assets"), path.join(out, "assets"));
 copyDir(path.join(src, "partials"), path.join(out, "partials"));
+copyDir(path.join(src, "assets"), path.join(out, "static"));
 
 // Build pages
 buildPages();
