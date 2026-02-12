@@ -1,0 +1,40 @@
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #252525; 
+  }
+
+.b-border{border-bottom: 2px #000 solid;}
+input.with-border, input[type="text"].with-border{
+    border-radius: 70px;
+}
+.teacher-form{padding: 20px;}
+
+.teacher-form div input{box-shadow: 0px 0px 1px #111; margin-bottom: 10px;}
+.teacher-form div textarea{box-shadow: 0px 0px 1px #111; margin-bottom: 10px; padding-top: 10px; padding-left: 20px;}
+
+input#id_profile_image{padding-top: 10px; padding-left: 20px;}
+.uk-switcher > :not(.uk-active) {
+  display: block !important;
+}
+textarea#id_meta_desc{padding: 20px 0px 0px 20px;}
+textarea#id_description{padding: 20px 0px 0px 20px;}
+textarea#id_desc{padding: 20px 0px 0px 20px;}
+textarea#id_content{padding: 20px 0px 0px 20px;}
+input#id_image{padding: 10px 0px 0px 20px;}
+input#id_video_id{padding: 10px 0px 0px 20px;}
+input#id_available{width: 20%; height: 20px;}
+input#id_is_preview{width: 20%; height: 20px;}
+input[type="checkbox"] {
+  width: 20%; height: 20px;
+}
+#cke_id_content{width: 100% !important;}

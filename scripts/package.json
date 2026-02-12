@@ -1,0 +1,9 @@
+{
+  "name": "kubewize-static",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js && npx serve public"
+  }
+}
+
