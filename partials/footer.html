@@ -1,116 +1,53 @@
-<footer>
-  <div class="footer__area footer-bg">
-    <div class="footer__top pt-20 pb-40">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
-            <div class="footer__widget mb-50">
-              <div class="footer__widget-head mb-22">
-                <div class="footer__logo">
-                  <a href="/">
-                    <img src="/static/img/logo/logo.png" width="260" alt="Kubewize">
-                  </a>
-                </div>
-              </div>
-              <div class="footer__widget-body">
-                <p style="color:#cbd5e1; margin-bottom:14px;">
-                  AI-Driven Managed Security Operations for AI-enabled cloud-native enterprises.
-                </p>
-                <div class="footer__social">
-                  <ul>
-                    <li><a href="https://www.facebook.com/profile.php?id=61563787467445" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://www.linkedin.com/company/kubewize" target="_blank" class="tw"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://www.twitter.com/kubewize" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://www.youtube.com/@kubewize" target="_blank" class="pin"><i class="fab fa-youtube"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
-            <div class="footer__widget mb-50">
-              <div class="footer__widget-head mb-22">
-                <h3 class="footer__widget-title">Company</h3>
-              </div>
-              <div class="footer__widget-body">
-                <div class="footer__link">
-                  <ul>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/partners/">Partners</a></li>
-                    <li><a href="/careers/">Careers</a></li>
-                    <li><a href="/contact/">Contact</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
-            <div class="footer__widget mb-50">
-              <div class="footer__widget-head mb-22">
-                <h3 class="footer__widget-title">What We Do</h3>
-              </div>
-              <div class="footer__widget-body">
-                <div class="footer__link">
-                  <ul>
-                    <li><a href="/autonomous-security-transformation/">Autonomous Security Transformation</a></li>
-                    <li><a href="/managed-security-operations/">Managed Security Operations</a></li>
-                    <li><a href="/detection-engineering/">Detection Engineering</a></li>
-                    <li><a href="/automation-response/">Automation & Response</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
-            <div class="footer__widget footer__pl-70 mb-50">
-              <div class="footer__widget-head mb-22">
-                <h3 class="footer__widget-title">Subscribe</h3>
-              </div>
-              <div class="footer__widget-body">
-                <div class="footer__subscribe">
-                  <!-- Static-site friendly: point to a form endpoint (Mailchimp/Brevo/ConvertKit/Cloudflare Workers) -->
-                  <form method="post" action="/subscribe/">
-                    <div class="footer__subscribe-input mb-15">
-                      <input type="email" name="email" placeholder="Enter email to subscribe" required>
-                      <button type="submit">
-                        <i class="fas fa-arrow-right"></i>
-                        <i class="fas fa-arrow-right"></i>
-                      </button>
-                    </div>
-                  </form>
-                  <p>Get security insights on AI-driven cloud-native operations.</p>
-                  <p class="small" style="opacity:.8;">
-                    Prefer not to use a form yet? Link this to a newsletter provider page.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- row -->
-      </div><!-- container -->
-    </div><!-- footer__top -->
-
-    <div class="footer__bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-xxl-12">
-            <div class="footer__copyright text-center">
-              <p>© <span id="kwzYear"></span> Kubewize Inc — All Rights Reserved.</p>
-            </div>
-          </div>
-        </div>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a class="logo" href="/" aria-label="Kubewize home">Kubewize</a>
+        <p class="footer-text">
+          AI-driven managed security operations and cloud-native security solutions.
+        </p>
       </div>
     </div>
 
+    <div class="footer-col">
+      <h3 class="footer-title">Company</h3>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/partners/">Partners</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Services</h3>
+      <ul class="footer-links">
+        <li><a href="/services/">Managed Security</a></li>
+        <li><a href="/services/#endpoint">Endpoint Security</a></li>
+        <li><a href="/services/#cloud">Cloud Security</a></li>
+        <li><a href="/services/#kubernetes">Kubernetes Security</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Get in touch</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@kubewize.cloud">hello@kubewize.cloud</a></li>
+        <li><a href="/contact/">Book a Call</a></li>
+      </ul>
+      <div class="footer-social" aria-label="Social links">
+        <a href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://x.com" rel="noopener" target="_blank">X</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Kubewize. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
   </div>
 </footer>
-
-<script>
-  document.getElementById('kwzYear').textContent = new Date().getFullYear();
-</script>
 
