@@ -797,3 +797,24 @@ footer{
 .theme-kubewize-light a { color: #0B2E6B; }
 .theme-kubewize-light a:hover { color: #0A275C; }
 
+/* Logo styling */
+.theme-kubewize-light .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.theme-kubewize-light .logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.theme-kubewize-light .logo-tagline {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5B6B82;
+  line-height: 1.1;
+}
+
