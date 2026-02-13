@@ -851,3 +851,47 @@ footer{
   border-radius: 12px;
 }
 
+
+/* Trust bar (partners) */
+.theme-kubewize-light .trust-bar {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid #E6ECF5;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(11,18,32,.06);
+}
+
+.theme-kubewize-light .trust-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #5B6B82;
+  margin-right: 2px;
+}
+
+.theme-kubewize-light .trust-item {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0B1220;
+}
+
+.theme-kubewize-light .trust-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #A9B7CC;
+  opacity: .8;
+}
+
+.theme-kubewize-light .trust-logo {
+  height: 18px;
+  width: auto;
+  opacity: .9;
+}
+
