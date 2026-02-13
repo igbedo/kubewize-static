@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kubewize | Contact</title>
+  <meta name="description" content="Contact Kubewize. Schedule a strategic security review." />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <div class="brand-name">Kubewize</div>
+          <span class="brand-tag">Contact</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="autonomous-security-model.html">Model</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="services.html">Engagement Options</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>Contact</h1>
+      <p class="lead">Tell us what you’re building and where security operations are straining under AI-driven complexity.</p>
+    </div>
+  </section>
+
+  <section class="section" id="review">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card pad">
+          <h2>Schedule a Strategic Security Review</h2>
+          <p class="small">
+            After you submit, you’ll be directed to scheduling. For now, this page includes a placeholder.
+          </p>
+
+          <form class="form" action="#" method="post">
+            <label class="label" for="c_company">Company</label>
+            <input class="input" id="c_company" name="company" required />
+
+            <label class="label" for="c_role">Role</label>
+            <input class="input" id="c_role" name="role" required />
+
+            <label class="label" for="c_size">Company size</label>
+            <select class="input" id="c_size" name="size" required>
+              <option value="" disabled selected>Select</option>
+              <option>26–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+              <option>1–25</option>
+            </select>
+
+            <label class="label" for="c_email">Work email</label>
+            <input class="input" id="c_email" name="email" type="email" required />
+
+            <label class="label" for="c_msg">Primary challenge</label>
+            <input class="input" id="c_msg" name="challenge" placeholder="Alert fatigue, detection gaps, AI pipelines, automation..." required />
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+
+            <p class="small" style="margin:6px 0 0;">
+              Replace this with your Calendly or booking link later.
+            </p>
+          </form>
+        </div>
+
+        <div class="card pad">
+          <h2>Direct contact</h2>
+          <p class="small">Use this if you prefer email.</p>
+          <p class="small"><strong>Email:</strong> hello@kubewize.cloud</p>
+          <p class="small"><strong>Focus:</strong> AI-driven security operations, detection engineering, automation, cloud-native security.</p>
+          <hr class="sep" style="margin:16px 0;" />
+          <p class="small">
+            If you already have a CNAPP/XDR/SIEM in place, we can still help: our work enhances detection quality, reduces noise,
+            and operationalizes response—without replacing your tools.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p class="small">© <span id="year"></span> Kubewize. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+

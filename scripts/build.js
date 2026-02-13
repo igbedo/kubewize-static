@@ -2,7 +2,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const root = process.cwd();
+// Always resolve project root as: (repo)/scripts/build.js -> repo root
+const root = path.resolve(__dirname, "..");
 const src = path.join(root, "src");
 const out = path.join(root, "public");
 
@@ -23,14 +24,36 @@ function copyDir(from, to) {
   }
 }
 
+function readIfExists(p) {
+  return fs.existsSync(p) ? fs.readFileSync(p, "utf8") : "";
+}
+
+function injectPartials(html, { header, footer }) {
+  if (header) html = html.replace(/<!--\s*HEADER\s*-->/g, header);
+  if (footer) html = html.replace(/<!--\s*FOOTER\s*-->/g, footer);
+  return html;
+}
+
 function buildPages() {
   const pagesDir = path.join(src, "pages");
-  const files = fs.readdirSync(pagesDir).filter(f => f.endsWith(".html"));
+  if (!fs.existsSync(pagesDir)) {
+    throw new Error(`Missing pages directory: ${pagesDir}`);
+  }
+
+  const files = fs.readdirSync(pagesDir).filter((f) => f.endsWith(".html"));
+  if (!files.length) {
+    throw new Error(`No .html files found in: ${pagesDir}`);
+  }
+
+  const header = readIfExists(path.join(src, "partials", "header.html"));
+  const footer = readIfExists(path.join(src, "partials", "footer.html"));
 
   for (const file of files) {
-    const html = fs.readFileSync(path.join(pagesDir, file), "utf8");
+    const inPath = path.join(pagesDir, file);
+    const raw = fs.readFileSync(inPath, "utf8");
+    const html = injectPartials(raw, { header, footer });
 
-    if (file === "index.html") {
+    if (file.toLowerCase() === "index.html") {
       mkdirp(out);
       fs.writeFileSync(path.join(out, "index.html"), html);
       continue;
@@ -43,13 +66,16 @@ function buildPages() {
   }
 }
 
+// ---- Build pipeline ----
+console.log("Build root:", root);
+console.log("Src:", src);
+console.log("Out:", out);
+
 rm(out);
 mkdirp(out);
 
-// Copy assets and partials
+// Copy assets (if present)
 copyDir(path.join(src, "assets"), path.join(out, "assets"));
-copyDir(path.join(src, "partials"), path.join(out, "partials"));
-copyDir(path.join(src, "assets"), path.join(out, "static"));
 
 // Build pages
 buildPages();
