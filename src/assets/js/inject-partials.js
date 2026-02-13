@@ -2,7 +2,10 @@
 (async function () {
   async function inject(selector, url) {
     const el = document.querySelector(selector);
-    if (!el) return;
+    if (!el) {
+      console.warn(`Missing placeholder: ${selector}`);
+      return;
+    }
 
     const res = await fetch(url, { cache: "no-cache" });
     if (!res.ok) {
@@ -13,13 +16,14 @@
     el.innerHTML = await res.text();
   }
 
-  // IMPORTANT: absolute paths so it works from / and /about/ etc.
+  const v = "v1"; // bump when you change partials
   await Promise.all([
-    inject("#site-header", "/partials/header.html"),
-    inject("#site-footer", "/partials/footer.html"),
+    inject("#site-header", `/partials/header.html?${v}`),
+    inject("#site-footer", `/partials/footer.html?${v}`),
   ]);
 
-  // If your nav needs initialization after injection, do it here:
+  // AFTER injection, initialize scripts
   if (window.initNav) window.initNav();
+  if (window.setYear) window.setYear();
 })();
 

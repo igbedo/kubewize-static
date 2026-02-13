@@ -1,3 +1,5 @@
+// src/assets/js/main.js
+
 // Footer year
 function setYear() {
   const y = document.getElementById("year");
@@ -10,6 +12,10 @@ function initNav() {
   const nav = document.getElementById("primary-nav");
   if (!toggle || !nav) return;
 
+  // Prevent multiple listeners if initNav is called more than once (e.g., after injection + DOMContentLoaded)
+  if (toggle.dataset.bound === "1") return;
+  toggle.dataset.bound = "1";
+
   toggle.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
@@ -19,14 +25,16 @@ function initNav() {
 
   // Highlight active nav link (basic)
   const path = location.pathname.endsWith("/") ? location.pathname : location.pathname + "/";
-  document.querySelectorAll('[data-nav]').forEach(a => {
+  document.querySelectorAll("[data-nav]").forEach((a) => {
     if (a.getAttribute("data-nav") === path) a.classList.add("active");
   });
 }
 
+// Expose to injector (so it can call after header/footer are injected)
+window.setYear = setYear;
 window.initNav = initNav;
 
-// If your header/footer are injected after load, call these after injection too.
+// Run once on initial load (harmless even if header/footer inject later)
 document.addEventListener("DOMContentLoaded", () => {
   setYear();
   initNav();
