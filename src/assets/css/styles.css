@@ -818,3 +818,36 @@ footer{
   line-height: 1.1;
 }
 
+.theme-kubewize-light .hero-section {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f4f7fb 60%,
+    #f7f9fc 100%
+  );
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.theme-kubewize-light .nav-cta,
+.theme-kubewize-light .btn-primary {
+  background: linear-gradient(90deg, #0B2E6B, #1E4FD8);
+  box-shadow: 0 6px 18px rgba(30,79,216,.25);
+}
+
+.theme-kubewize-light .trust-bar {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #5B6B82;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.theme-kubewize-light .card-icon {
+  background: #E7F0FF;
+  color: #0B2E6B;
+  border-radius: 12px;
+}
+
