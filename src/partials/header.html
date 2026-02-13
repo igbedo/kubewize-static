@@ -1,130 +1,28 @@
-<header>
-   <!-- Add Bootstrap CSS and JS if not already present -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="Kubewize home">
+      Kubewize
+      <span class="logo-tagline">AI-Driven Managed Security Operations</span>
+    </a>
 
-         <div id="header-sticky" class="header__area header__transparent header__padding">
-            <div class="container-fluid">
-               <div class="row align-items-center">
-                  <div class="col-xxl-2 col-xl-2 col-lg-4 col-md-2 col-sm-4 col-6">
-                     <div class="header__left d-flex">
-                        <div class="logo">
-                           <a href="/">
-                              <img src="/assets/img/logo/logo.png" alt="logo">
-                           </a>
-                        </div>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
-                        <div class="header__category d-none d-lg-block">
-                           
-                     
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-10 col-xl-10 col-lg-8 col-md-10 col-sm-8 col-6">
-                     <div class="header__right d-flex justify-content-end align-items-center">
-                        <div class="main-menu">
-                           <nav id="mobile-menu">
-                              <ul white-space: nowrap; >
-                                   <li> <a href="/services/">Services</a>
-                                   <ul class="submenu">
-                                      <li><a href="/kubernetesimplementation/">Kubernetes Implementation</a></li>
-                                      <li><a href="/cloudarchitectures/">Cloud Architectures</a></li>
-                                      <li><a href="/devopsautomation/">DevOps Automation</a></li> 
-                                     <li><a href="/observability/">Observability & Monitoring</a></li>
-                                     <li><a href="/infrastructureascode/">Infrastructure as Code</a></li>
-                                     <li><a href="/platformengineering/">Platform Engineering</a></li> 
-                                     <li><a href="/cloudnativesecurity/">Cloud-Native Security</a></li>
-                                     <li><a href="/consultingandadvisory/">Consulting & Advisory</a></li>
-                                     <li><a href="/trainingenablement/">Training & Enablement</a></li>
-                                    </ul>
-                                      </li>  
-                                      <li> <a href="/solutions/">Solutions</a>
-                                       <ul class="submenu">
-                                          
-                                          <li><a href="/implementationandintegration/">Implementation & Integration</a></li> 
-                                         <li><a href="/managedservices/">Managed Services</a></li>
-                                         <li><a href="/cloudnativetransformation/">Cloud-Native Transformation</a></li> 
-                                         <li><a href="/infrastructuremodernization/">Infrastructure Modernization</a></li> 
-                                         <li><a href="/cloudarchitectures/">Security & Compliance</a></li>
-                                         <li><a href="/devopsatscale/">DevOps at Scale</a></li>
-                                         <li><a href="/resilienceobservability/">Resilience & Observability</a></li>
-                                        </ul>
-                                          </li> 
-
-                                          <li> <a href="/industries/">Industries</a>
-                                             <ul class="submenu">
-                                                <li><a href="/saastechstartups/">SaaS & Tech Startups</a></li>
-                                                <li><a href="/fintechandbanking/">Fintech and Banking</a></li> 
-                                               <li><a href="/healthcarelifesciences/">Healthcare & Life Sciences</a></li>
-                                               <li><a href="/enterpriseslegacymodernization/">Enterprises & Legacy Modernization</a></li>
-                                               
-                                              </ul>
-                                                </li>  
-
-                                   <li>
-                                    <a href="/blogs/">Resources</a>  
-                                    <ul class="submenu">
-                                    <li><a href="/casestudies/">Case Studies</a></li>
-                                    <li><a  href="/blogs/">Blog/Insights</a></li>
-                                     <li><a href="/whitepapers/">Whitepapers / E-books</a></li>
-                                     <li><a href="/webinars/">Webinars</a></li>
-                                       </ul>                               
-                                      </li>
-
-                                    <li>
-                                    <a href="/about/">About</a>
-                                    <ul class="submenu">                    
-
-                                 <li><a href="/companyoverview/">Company Overview</a></li>
-                                 
-                                <li><a href="/ourteam/">Our Team</a></li>
-                                
-                                <li><a href="/careers/">Careers</a></li>
-                                <li><a href="/contact/">Contact</a></li>
-
-                              </ul>
-                           </li>
-                           <li>
-                              <!-- <a href="/getstarted/">Get Started</a> -->
-                              <a href="/contact/" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
-                                 Get Started
-                               </a>
-</li>
-                           </nav>
-                        </div>
-                         
-                        <div class="header__search p-relative ml-50 d-none d-md-block">
-<!-- page title area start -->                         
-                          <!--
-                           <form action="/search/" type='post'>
-                              <input type="text" name='search' placeholder="Search courses...">
-                              <button type="submit"><i class="fas fa-search"></i></button>
-                           </form>
-                             -->
-                          
-                        </div>
-<!-- start-->
-<form action="/search/" type='post'>
-   <input type="text" name='search' placeholder="Search website...">
-   <button type="submit"><i class="fas fa-search"></i></button>
-</form>
-<div class="sidebar__menu d-xl-none">
-<div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-  <span class="line"></span>
-  <span class="line"></span>
-  <span class="line"></span>
-</div>
-</div> 
-
-<!--stop-->
-                       
-                        
-                        
-                        </div>
-                        
-                        
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="/" data-nav="/">Home</a>
+      <a href="/services/" data-nav="/services/">Services</a>
+      <a href="/partners/" data-nav="/partners/">Partners</a>
+      <a href="/resources/" data-nav="/resources/">Resources</a>
+      <a href="/about/" data-nav="/about/">About</a>
+      <a href="/contact/" class="nav-cta" data-nav="/contact/">Book a Call</a>
+    </nav>
+  </div>
+</header>
 

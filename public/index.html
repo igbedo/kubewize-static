@@ -10,135 +10,33 @@
 </head>
 <body>
 
-<header>
-   <!-- Add Bootstrap CSS and JS if not already present -->
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="Kubewize home">
+      Kubewize
+      <span class="logo-tagline">AI-Driven Managed Security Operations</span>
+    </a>
 
-         <div id="header-sticky" class="header__area header__transparent header__padding">
-            <div class="container-fluid">
-               <div class="row align-items-center">
-                  <div class="col-xxl-2 col-xl-2 col-lg-4 col-md-2 col-sm-4 col-6">
-                     <div class="header__left d-flex">
-                        <div class="logo">
-                           <a href="/">
-                              <img src="/assets/img/logo/logo.png" alt="logo">
-                           </a>
-                        </div>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
-                        <div class="header__category d-none d-lg-block">
-                           
-                     
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xxl-10 col-xl-10 col-lg-8 col-md-10 col-sm-8 col-6">
-                     <div class="header__right d-flex justify-content-end align-items-center">
-                        <div class="main-menu">
-                           <nav id="mobile-menu">
-                              <ul white-space: nowrap; >
-                                   <li> <a href="/services/">Services</a>
-                                   <ul class="submenu">
-                                      <li><a href="/kubernetesimplementation/">Kubernetes Implementation</a></li>
-                                      <li><a href="/cloudarchitectures/">Cloud Architectures</a></li>
-                                      <li><a href="/devopsautomation/">DevOps Automation</a></li> 
-                                     <li><a href="/observability/">Observability & Monitoring</a></li>
-                                     <li><a href="/infrastructureascode/">Infrastructure as Code</a></li>
-                                     <li><a href="/platformengineering/">Platform Engineering</a></li> 
-                                     <li><a href="/cloudnativesecurity/">Cloud-Native Security</a></li>
-                                     <li><a href="/consultingandadvisory/">Consulting & Advisory</a></li>
-                                     <li><a href="/trainingenablement/">Training & Enablement</a></li>
-                                    </ul>
-                                      </li>  
-                                      <li> <a href="/solutions/">Solutions</a>
-                                       <ul class="submenu">
-                                          
-                                          <li><a href="/implementationandintegration/">Implementation & Integration</a></li> 
-                                         <li><a href="/managedservices/">Managed Services</a></li>
-                                         <li><a href="/cloudnativetransformation/">Cloud-Native Transformation</a></li> 
-                                         <li><a href="/infrastructuremodernization/">Infrastructure Modernization</a></li> 
-                                         <li><a href="/cloudarchitectures/">Security & Compliance</a></li>
-                                         <li><a href="/devopsatscale/">DevOps at Scale</a></li>
-                                         <li><a href="/resilienceobservability/">Resilience & Observability</a></li>
-                                        </ul>
-                                          </li> 
-
-                                          <li> <a href="/industries/">Industries</a>
-                                             <ul class="submenu">
-                                                <li><a href="/saastechstartups/">SaaS & Tech Startups</a></li>
-                                                <li><a href="/fintechandbanking/">Fintech and Banking</a></li> 
-                                               <li><a href="/healthcarelifesciences/">Healthcare & Life Sciences</a></li>
-                                               <li><a href="/enterpriseslegacymodernization/">Enterprises & Legacy Modernization</a></li>
-                                               
-                                              </ul>
-                                                </li>  
-
-                                   <li>
-                                    <a href="/blogs/">Resources</a>  
-                                    <ul class="submenu">
-                                    <li><a href="/casestudies/">Case Studies</a></li>
-                                    <li><a  href="/blogs/">Blog/Insights</a></li>
-                                     <li><a href="/whitepapers/">Whitepapers / E-books</a></li>
-                                     <li><a href="/webinars/">Webinars</a></li>
-                                       </ul>                               
-                                      </li>
-
-                                    <li>
-                                    <a href="/about/">About</a>
-                                    <ul class="submenu">                    
-
-                                 <li><a href="/companyoverview/">Company Overview</a></li>
-                                 
-                                <li><a href="/ourteam/">Our Team</a></li>
-                                
-                                <li><a href="/careers/">Careers</a></li>
-                                <li><a href="/contact/">Contact</a></li>
-
-                              </ul>
-                           </li>
-                           <li>
-                              <!-- <a href="/getstarted/">Get Started</a> -->
-                              <a href="/contact/" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
-                                 Get Started
-                               </a>
-</li>
-                           </nav>
-                        </div>
-                         
-                        <div class="header__search p-relative ml-50 d-none d-md-block">
-<!-- page title area start -->                         
-                          <!--
-                           <form action="/search/" type='post'>
-                              <input type="text" name='search' placeholder="Search courses...">
-                              <button type="submit"><i class="fas fa-search"></i></button>
-                           </form>
-                             -->
-                          
-                        </div>
-<!-- start-->
-<form action="/search/" type='post'>
-   <input type="text" name='search' placeholder="Search website...">
-   <button type="submit"><i class="fas fa-search"></i></button>
-</form>
-<div class="sidebar__menu d-xl-none">
-<div class="sidebar-toggle-btn ml-30" id="sidebar-toggle">
-  <span class="line"></span>
-  <span class="line"></span>
-  <span class="line"></span>
-</div>
-</div> 
-
-<!--stop-->
-                       
-                        
-                        
-                        </div>
-                        
-                        
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="/" data-nav="/">Home</a>
+      <a href="/services/" data-nav="/services/">Services</a>
+      <a href="/partners/" data-nav="/partners/">Partners</a>
+      <a href="/resources/" data-nav="/resources/">Resources</a>
+      <a href="/about/" data-nav="/about/">About</a>
+      <a href="/contact/" class="nav-cta" data-nav="/contact/">Book a Call</a>
+    </nav>
+  </div>
+</header>
 
 
 <main>
@@ -277,111 +175,59 @@
 
 </main>
 
-<!-- footer area start -->
-         <footer>
-            <div class="footer__area footer-bg">
-               <div class="footer__top pt-20 pb-40">
-                  <div class="container">
-                     <div class="row">
-                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                           <div class="footer__widget mb-50">
-                              <div class="footer__widget-head mb-22">
-                                 <div class="footer__logo">
-                                    <a href="/">
-                                       <img src="/assets/img/logo/logo.png" width="300" alt="">
-                                    </a>
-                                 </div>
-                              </div>
-                              <div class="footer__widget-body">
-                              
-                               <!--   <p>You can realize your dreams by learning with CTE. Join us today!</p> -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a class="logo" href="/" aria-label="Kubewize home">Kubewize</a>
+        <p class="footer-text">
+          AI-driven managed security operations and cloud-native security solutions.
+        </p>
+      </div>
+    </div>
 
-                                 <div class="footer__social">
-                                    <ul>
-                                       <li><a href="https://www.facebook.com/profile.php?id=61563787467445" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                                       <li><a href="https://www.linkedin.com/company/kubewize" target="_blank" class="tw"><i class="fab fa-linkedin"></i></a></li>
-                                       <li><a href="https://www.twitter.com/kubewize" target="_blank" class="tw"><i class="fab fa-twitter"></i></a></li>
-                                       <li><a href="https://www.youtube.com/@kubewize" class="pin"><i class="fab fa-youtube" target="_blank"></i></a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xxl-2 offset-xxl-1 col-xl-2 offset-xl-1 col-lg-3 offset-lg-0 col-md-2 offset-md-1 col-sm-5 offset-sm-1">
-                           <div class="footer__widget mb-50">
-                              <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Shortcuts</h3>
-                              </div>
-                              <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>
-                                       <li><a href="/managedservices/">Consulting</a></li>
-                                       <li><a href="/about/">About</a></li>
-                                    
-                                       <li><a href="/blogs/">Blog</a></li>
-                              
-                                       <li><a href="/contact/">Contact</a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xxl-2 col-xl-2 col-lg-2 offset-lg-0 col-md-3 offset-md-1 col-sm-6">
-                           <div class="footer__widget mb-50">
-                              <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Consulting Categories</h3>
-                              </div>
-                              <div class="footer__widget-body">
-                                 <div class="footer__link">
-                                    <ul>                                     
-                                       <li><a href="/managedservices/"> Managed Services</a></li>
-                                       <li><a href="/securityconsulting/"> Kubernetes Security Consulting</a></li>
-                                       <li><a href="/kubernetesnetworking/"> Kubernetes Network Consulting</a></li>
-                                       <li><a href="/kubernetesmonitoring/"> Kubernetes Observability Consulting</a></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-6">
-                           <div class="footer__widget footer__pl-70 mb-50">
-                              <div class="footer__widget-head mb-22">
-                                 <h3 class="footer__widget-title">Subscribe</h3>
-                              </div>
-                              <div class="footer__widget-body">
-                                 <div class="footer__subscribe">   
-                                       <form method="post" action="/marketing/">
-                                        <input type="hidden" name="csrfmiddlewaretoken" value="i7hDxQFjLQ3G4Ckc5noUPe4CHfUaZI2oYueQGEKivho9egGZcLYO4OSo4ccVhDO4">
-                                       <div class="footer__subscribe-input mb-15">
-                                        <!-- <div class="form-group"> -->
-                                        <input type="email" name="email" placeholder="Enter Email to Subscribe">
-                                          <button type="submit">
-                                             <i class="fas fa-arrow-right"></i>
-                                             <i class="fas fa-arrow-right"></i>
-                                          </button>
-                                       </div>
-                                    </form>
-                                    <p>Get the latest news and updates right at your inbox.</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="footer__bottom">
-                  <div class="container">
-                     <div class="row">
-                        <div class="col-xxl-12">
-                           <div class="footer__copyright text-center">
-                              <p>©2025 KubeWize Inc-All Rights Reserved.</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </footer>
+    <div class="footer-col">
+      <h3 class="footer-title">Company</h3>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/partners/">Partners</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Services</h3>
+      <ul class="footer-links">
+        <li><a href="/services/">Managed Security</a></li>
+        <li><a href="/services/#endpoint">Endpoint Security</a></li>
+        <li><a href="/services/#cloud">Cloud Security</a></li>
+        <li><a href="/services/#kubernetes">Kubernetes Security</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Get in touch</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@kubewize.cloud">hello@kubewize.cloud</a></li>
+        <li><a href="/contact/">Book a Call</a></li>
+      </ul>
+      <div class="footer-social" aria-label="Social links">
+        <a href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://x.com" rel="noopener" target="_blank">X</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Kubewize. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+</footer>
+
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
