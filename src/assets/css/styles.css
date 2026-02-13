@@ -963,3 +963,76 @@ footer{
   background:#A9B7CC;
 }
 
+/* =========================================
+   Premium Cybersecurity Footer (Light Site)
+   ========================================= */
+.theme-kubewize-light .site-footer{
+  background: linear-gradient(180deg, #071A3A 0%, #06152F 100%);
+  color: rgba(255,255,255,.86);
+  border-top: none;
+  position: relative;
+}
+
+/* subtle top glow divider */
+.theme-kubewize-light .site-footer::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,.45), transparent);
+  opacity:.65;
+}
+
+.theme-kubewize-light .site-footer .footer-title{
+  color: rgba(255,255,255,.62);
+  letter-spacing: .08em;
+}
+
+.theme-kubewize-light .site-footer .footer-text{
+  color: rgba(255,255,255,.70);
+}
+
+.theme-kubewize-light .site-footer a{
+  color: rgba(255,255,255,.80);
+  text-decoration: none;
+}
+
+.theme-kubewize-light .site-footer a:hover{
+  color: #ffffff;
+}
+
+.theme-kubewize-light .site-footer .footer-links a{
+  font-weight: 600;
+}
+
+.theme-kubewize-light .site-footer .footer-bottom{
+  border-top: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.62);
+}
+
+/* spacing polish */
+.theme-kubewize-light .site-footer .footer-grid{
+  padding-top: 44px;
+  padding-bottom: 22px;
+}
+
+.theme-kubewize-light .site-footer .footer-bottom{
+  padding-top: 16px;
+  padding-bottom: 34px;
+}
+
+/* Optional: premium social pill links */
+.theme-kubewize-light .footer-social a{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+}
+.theme-kubewize-light .footer-social a:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.22);
+}
+
