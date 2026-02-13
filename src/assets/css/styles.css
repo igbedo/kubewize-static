@@ -721,3 +721,79 @@ footer{
 }
 .theme-kubewize-light .skip-link:focus { left: 10px; }
 
+/* =========================================
+   Kubewize Light Theme – Contrast Fix Patch
+   Paste at the VERY END of styles.css
+   ========================================= */
+
+/* 1) Force readable base text colors */
+.theme-kubewize-light,
+.theme-kubewize-light body {
+  color: #0B1220;
+}
+
+.theme-kubewize-light p,
+.theme-kubewize-light li,
+.theme-kubewize-light span,
+.theme-kubewize-light small {
+  color: #42566F;
+}
+
+/* Headings darker */
+.theme-kubewize-light h1,
+.theme-kubewize-light h2,
+.theme-kubewize-light h3,
+.theme-kubewize-light h4,
+.theme-kubewize-light h5,
+.theme-kubewize-light h6 {
+  color: #0B1220;
+}
+
+/* 2) Override common “white text” utility classes from templates/bootstrap */
+.theme-kubewize-light .text-white,
+.theme-kubewize-light .text-light,
+.theme-kubewize-light .text-white *,
+.theme-kubewize-light .text-light * {
+  color: #0B1220 !important;
+}
+
+/* If template uses opacity tricks, neutralize them */
+.theme-kubewize-light .opacity-10,
+.theme-kubewize-light .opacity-20,
+.theme-kubewize-light .opacity-30,
+.theme-kubewize-light .opacity-40,
+.theme-kubewize-light .opacity-50 {
+  opacity: 1 !important;
+}
+
+/* 3) Make “kicker/eyebrow” text readable (the faint line above the hero) */
+.theme-kubewize-light .kicker,
+.theme-kubewize-light .eyebrow,
+.theme-kubewize-light .subtitle,
+.theme-kubewize-light .section-subtitle {
+  color: #5B6B82 !important;
+}
+
+/* 4) Forms: labels + placeholder contrast */
+.theme-kubewize-light label,
+.theme-kubewize-light .form-label {
+  color: #5B6B82 !important;
+  font-weight: 600;
+}
+
+.theme-kubewize-light input,
+.theme-kubewize-light select,
+.theme-kubewize-light textarea {
+  color: #0B1220;
+}
+
+.theme-kubewize-light input::placeholder,
+.theme-kubewize-light textarea::placeholder {
+  color: #7A8AA3;
+  opacity: 1;
+}
+
+/* 5) Links inside light sections */
+.theme-kubewize-light a { color: #0B2E6B; }
+.theme-kubewize-light a:hover { color: #0A275C; }
+
