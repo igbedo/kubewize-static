@@ -7,31 +7,28 @@
   <meta name="description" content="The Kubewize Autonomous Security Model™: Visibility → Intelligence → Response → Resilience." />
   <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
-<body>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="index.html">
-        <div class="brand-mark" aria-hidden="true"></div>
-        <div>
-          <div class="brand-name">Kubewize</div>
-          <span class="brand-tag">Autonomous Security Model™</span>
-        </div>
-      </a>
+<body class="theme-kubewize">
+<header class="site-header" role="banner">
+  <div class="container header-inner">
+    <a class="logo" href="/" aria-label="Kubewize home">
+      Kubewize
+      <span class="logo-tagline">Enterprise Security • AI-Driven Ops</span>
+    </a>
 
-      <nav class="nav-links" aria-label="Primary">
-        <a href="services.html">Services</a>
-        <a href="autonomous-security-model.html">Model</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">☰</button>
 
-      <div class="nav-cta">
-        <a class="btn btn-primary" href="contact.html#review">Schedule a Strategic Security Review</a>
-      </div>
-    </div>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="/" data-nav="/">Home</a>
+      <a href="/services/" data-nav="/services/">Services</a>
+      <a href="/partners/" data-nav="/partners/">Partners</a>
+      <a href="/resources/" data-nav="/resources/">Resources</a>
+      <a href="/about/" data-nav="/about/">About</a>
+      <a class="nav-cta" href="/contact/" data-nav="/contact/">Book a Call</a>
+    </nav>
   </div>
 </header>
+
 
 <main>
   <section class="hero">
@@ -113,11 +110,59 @@
   </section>
 </main>
 
-<footer>
-  <div class="container">
-    <p class="small">© <span id="year"></span> Kubewize. All rights reserved.</p>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <a class="logo" href="/" aria-label="Kubewize home">Kubewize</a>
+        <p class="footer-text">
+          AI-driven managed security operations and cloud-native security solutions.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Company</h3>
+      <ul class="footer-links">
+        <li><a href="/about/">About</a></li>
+        <li><a href="/partners/">Partners</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Services</h3>
+      <ul class="footer-links">
+        <li><a href="/services/">Managed Security</a></li>
+        <li><a href="/services/#endpoint">Endpoint Security</a></li>
+        <li><a href="/services/#cloud">Cloud Security</a></li>
+        <li><a href="/services/#kubernetes">Kubernetes Security</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">Get in touch</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@kubewize.cloud">hello@kubewize.cloud</a></li>
+        <li><a href="/contact/">Book a Call</a></li>
+      </ul>
+      <div class="footer-social" aria-label="Social links">
+        <a href="https://www.linkedin.com" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://x.com" rel="noopener" target="_blank">X</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Kubewize. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
   </div>
 </footer>
+
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
