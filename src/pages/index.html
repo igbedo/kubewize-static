@@ -382,6 +382,65 @@
       margin-top: 1rem;
     }
 
+    .contact-form {
+      display: grid;
+      gap: .9rem;
+      margin-top: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .9rem;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: .38rem;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: .9rem .95rem;
+      font: inherit;
+      color: var(--text);
+      background: #ffffff;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: rgba(37,99,235,.45);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+    }
+
+    .form-help {
+      font-size: .88rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      flex-wrap: wrap;
+    }
+
     .cta {
       padding: 1.4rem;
       border-radius: var(--radius-lg);
@@ -435,7 +494,8 @@
       .process-grid,
       .partner-grid,
       .hero-proof,
-      .metric-band {
+      .metric-band,
+      .form-row {
         grid-template-columns: 1fr;
       }
       .section-heading { flex-direction: column; align-items: start; }
@@ -746,26 +806,57 @@
             </div>
           </div>
           <aside class="cta">
-            <h3>Talk to Kubewize</h3>
+            <h3>Start the conversation</h3>
             <p class="small">
-              Whether you need architecture guidance, a platform strategy, or a delivery partner for secure AI adoption, Kubewize is built to help enterprise teams move with clarity and confidence.
+              Use this form to reach Kubewize about AI infrastructure, AI security, sovereign cloud strategy, or delivery support. Replace the sample Formspree endpoint below with your real endpoint before publishing.
             </p>
-            <div class="hero-actions">
-              <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <textarea name="message" placeholder="Your Message" required></textarea>
 
-  <button type="submit" class="btn btn-primary">Send Message</button>
-</form>
-              <a class="btn btn-secondary" href="#engagements">View Engagements</a>
-            </div>
-            <div class="tags">
-              <span class="tag">Enterprise AI partner</span>
-              <span class="tag">Secure deployment</span>
-              <span class="tag">Sovereign cloud</span>
-              <span class="tag">GPU platforms</span>
-            </div>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="form-row">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label>
+                  Work email
+                  <input type="email" name="email" placeholder="you@company.com" required />
+                </label>
+              </div>
+
+              <div class="form-row">
+                <label>
+                  Company
+                  <input type="text" name="company" placeholder="Company name" />
+                </label>
+                <label>
+                  Inquiry type
+                  <select name="inquiry_type">
+                    <option value="AI Infrastructure">AI Infrastructure</option>
+                    <option value="AI Security">AI Security</option>
+                    <option value="Sovereign Cloud">Sovereign Cloud</option>
+                    <option value="Workshop or Advisory">Workshop or Advisory</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <label>
+                Message
+                <textarea name="message" placeholder="Tell us about your goals, environment, and what kind of support you need." required></textarea>
+              </label>
+
+              <input type="hidden" name="_subject" value="New Kubewize website inquiry" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Send Inquiry</button>
+                <span class="small">Responses will go to your Formspree-connected inbox.</span>
+              </div>
+            </form>
+
+            <p class="form-help">
+              After you create your Formspree form, replace <strong>YOUR_FORM_ID</strong> with the real ID and confirm the first submission from the verification email.
+            </p>
           </aside>
         </div>
       </div>
