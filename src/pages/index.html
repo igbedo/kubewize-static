@@ -530,7 +530,7 @@
   <header class="site-header">
     <div class="container nav">
       <a href="#top" class="brand">
-  <img class="brand-mark" src="assets/logo.png" alt="Kubewize logo" />
+  <img class="brand-mark" src="assets/img/logo.png" alt="Kubewize logo" />
   <span class="brand-text">
     <strong>Kubewize</strong>
     <span>Enterprise AI Infrastructure, Security & Sovereign Cloud</span>
@@ -908,10 +908,16 @@
           }
         });
 
+        const rawText = await response.text();
         let data = {};
         try {
-          data = await response.json();
-        } catch (_) {}
+          data = JSON.parse(rawText);
+        } catch (_) {
+          data = { raw: rawText };
+        }
+
+        console.log("Formspree status:", response.status);
+        console.log("Formspree response:", data);
 
         if (response.ok) {
           form.reset();
@@ -920,12 +926,17 @@
           return;
         }
 
-        if (data.errors && Array.isArray(data.errors) && data.errors.length > 0) {
+        if (data && Array.isArray(data.errors) && data.errors.length > 0) {
           status.textContent = data.errors.map(err => err.message).join(" ");
+        } else if (data && data.error) {
+          status.textContent = data.error;
+        } else if (data && data.raw) {
+          status.textContent = data.raw;
         } else {
-          status.textContent = "There was a problem submitting your inquiry. Please try again.";
+          status.textContent = `Submission failed with status ${response.status}. Check console for details.`;
         }
       } catch (error) {
+        console.error("Network/JS error:", error);
         status.textContent = "Network error. Please check your connection and try again.";
       } finally {
         if (submitButton) submitButton.disabled = false;
