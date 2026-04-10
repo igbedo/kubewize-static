@@ -1,180 +1,780 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kubewize | AI-Driven Managed Security Operations</title>
-  <meta name="description" content="AI-driven managed security operations for AI-enabled cloud-native enterprises. Detection engineering, automation workflows, strategic SOC oversight." />
-<link rel="stylesheet" href="/assets/css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kubewize | Enterprise AI Infrastructure, Security & Sovereign Cloud</title>
+  <meta name="description" content="Kubewize helps enterprises design, secure, and operationalize AI platforms across infrastructure, AI security, GPU deployment, and sovereign cloud environments." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-2: #f7f9fc;
+      --panel: #ffffff;
+      --panel-2: #f4f7fb;
+      --text: #0b1220;
+      --muted: #5b6b82;
+      --line: rgba(0,0,0,0.08);
+      --line-strong: rgba(0,0,0,0.14);
+      --primary: #2563eb;
+      --primary-2: #22c55e;
+      --accent: #1e40af;
+      --accent-2: #0f172a;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 14px;
+      --radius-lg: 20px;
+      --max: 1240px;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.05), transparent 30%),
+        radial-gradient(circle at top right, rgba(34,197,94,0.05), transparent 30%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.08;
+      letter-spacing: .01em;
+    }
+
+    .brand strong { font-size: 1.06rem; }
+    .brand span { color: var(--muted); font-size: .84rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      border-radius: 999px;
+      padding: .95rem 1.24rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(37,99,235,.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 6rem 0 4rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding-right: 1rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .48rem .86rem;
+      border: 1px solid rgba(37,99,235,.14);
+      background: rgba(37,99,235,.06);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { color: var(--text); }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 5.3rem);
+      line-height: .98;
+      letter-spacing: -0.05em;
+      margin: 1rem 0 1rem;
+      max-width: 11ch;
+    }
+
+    .gradient-text {
+      color: var(--text);
+      background: none;
+    }
+
+    .lead,
+    .section-heading p,
+    .card p,
+    .service-card p,
+    .engagement-card p,
+    .insight-card p,
+    .industry-card p,
+    .quote-card p,
+    .contact-card p,
+    .process-card p,
+    .small,
+    li {
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      max-width: 64ch;
+      margin: 0;
+    }
+
+    .hero-actions,
+    .tags {
+      display: flex;
+      gap: .85rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions { margin-top: 1.5rem; }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: .8rem;
+      margin-top: 1.7rem;
+    }
+
+    .proof-card,
+    .card,
+    .service-card,
+    .engagement-card,
+    .insight-card,
+    .industry-card,
+    .quote-card,
+    .contact-card,
+    .process-card,
+    .diagram-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      padding: 1.3rem;
+    }
+
+    .proof-card::before,
+    .card::before,
+    .service-card::before,
+    .engagement-card::before,
+    .insight-card::before,
+    .industry-card::before,
+    .quote-card::before,
+    .contact-card::before,
+    .process-card::before,
+    .diagram-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,.12), transparent);
+      opacity: .8;
+    }
+
+    .proof-card strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: .15rem;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 1rem;
+      grid-template-rows: auto auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 800;
+      font-size: .72rem;
+      margin-bottom: .7rem;
+    }
+
+    .hero-side-grid {
+      display: grid;
+      gap: .8rem;
+    }
+
+    .hero-item,
+    .process-item,
+    .contact-item,
+    .partner-tile {
+      padding: .95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+    }
+
+    .hero-item strong,
+    .process-item strong,
+    .contact-item strong { display:block; margin-bottom:.18rem; }
+
+    .section {
+      padding: 2.2rem 0 4.9rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 3vw, 3.35rem);
+      line-height: 1.05;
+      margin: .35rem 0 .3rem;
+      letter-spacing: -0.04em;
+      max-width: 13ch;
+    }
+
+    .grid-4,
+    .grid-3,
+    .grid-2,
+    .partner-grid,
+    .insight-grid,
+    .process-grid,
+    .architecture-grid,
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-4 { grid-template-columns: repeat(4,1fr); }
+    .grid-3 { grid-template-columns: repeat(3,1fr); }
+    .grid-2 { grid-template-columns: repeat(2,1fr); }
+    .partner-grid { grid-template-columns: repeat(5,1fr); }
+    .insight-grid { grid-template-columns: repeat(3,1fr); }
+    .process-grid { grid-template-columns: repeat(3,1fr); }
+    .architecture-grid { grid-template-columns: .98fr 1.02fr; gap: 1.15rem; }
+    .contact-grid { grid-template-columns: 1fr .92fr; }
+
+    .tag {
+      font-size: .8rem;
+      color: var(--accent);
+      padding: .42rem .72rem;
+      border-radius: 999px;
+      background: rgba(37,99,235,.06);
+      border: 1px solid rgba(37,99,235,.12);
+    }
+
+    .service-card h3,
+    .engagement-card h3,
+    .insight-card h3,
+    .industry-card h3,
+    .card h3,
+    .quote-card h3,
+    .contact-card h3,
+    .process-card h3,
+    .diagram-card h3 {
+      margin: 0 0 .55rem;
+      font-size: 1.12rem;
+    }
+
+    .architecture-diagram {
+      display: grid;
+      gap: .75rem;
+    }
+
+    .lane {
+      border: 1px dashed rgba(0,0,0,.12);
+      border-radius: 16px;
+      padding: .95rem;
+      background: var(--panel-2);
+    }
+
+    .lane strong { display:block; margin-bottom:.18rem; }
+
+    .metric-band {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: .9rem;
+      margin-top: 1rem;
+    }
+
+    .engagement-top {
+      display:flex;
+      align-items:start;
+      justify-content:space-between;
+      gap:.8rem;
+      margin-bottom:.7rem;
+    }
+
+    .engagement-card ul { padding-left: 1.1rem; margin: .75rem 0 0; }
+    .quote-card p:first-of-type { color: var(--text); font-size: 1.08rem; margin-top: 0; }
+
+    .partner-tile {
+      text-align: center;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .cta {
+      padding: 1.4rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(37,99,235,.12);
+      background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .site-footer {
+      padding: 1.8rem 0 2.4rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      background: #fbfcfe;
+    }
+
+    .footer-grid {
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .architecture-grid,
+      .contact-grid,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .insight-grid,
+      .process-grid,
+      .partner-grid,
+      .hero-proof {
+        grid-template-columns: 1fr 1fr;
+      }
+      .section-heading h2,
+      h1 { max-width: unset; }
+    }
+
+    @media (max-width: 760px) {
+      .nav { flex-direction: column; align-items: start; padding: 1rem 0; }
+      .hero { padding-top: 3.6rem; }
+      .hero-grid,
+      .architecture-grid,
+      .contact-grid,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .insight-grid,
+      .process-grid,
+      .partner-grid,
+      .hero-proof,
+      .metric-band {
+        grid-template-columns: 1fr;
+      }
+      .section-heading { flex-direction: column; align-items: start; }
+    }
+  </style>
 </head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <strong>Kubewize</strong>
+        <span>Enterprise AI Infrastructure, Security & Sovereign Cloud</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#services">Services</a>
+        <a href="#engagements">Engagements</a>
+        <a href="#partners">Partners</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-secondary" href="#contact">Talk to Kubewize</a>
+      </nav>
+    </div>
+  </header>
 
-<!--<body class="theme-kubewize">-->
-<body class="theme-kubewize-light">
-
-<!--HEADER-->
-<main>
-  <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-
-      <!-- LEFT -->
-      <div class="hero-left">
-        <div class="kicker"><span class="kicker-dot"></span> Built for AI-driven cloud-native complexity</div>
-
-        <h1>AI-Driven Managed Security Operations for Cloud-Native Enterprises</h1>
-
-        <p class="lead">
-          As AI adoption accelerates architectural complexity, traditional SOC processes struggle to scale.
-          Kubewize enhances and augments your existing security platforms with structured detection engineering,
-          automation workflows, and continuous strategic oversight—transforming reactive monitoring into resilient,
-          machine-speed defense.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="contact.html#review">Schedule a Strategic Security Review</a>
-          <a class="btn btn-secondary" href="services.html">View Services</a>
-        </div>
-
-        <div class="proof" aria-label="Capabilities">
-          <span class="pill">AI-Enhanced Detection Engineering</span>
-          <span class="pill">Cloud-Native Runtime Protection</span>
-          <span class="pill">Automation-Driven Response</span>
-          <span class="pill">Strategic SOC Augmentation</span>
-        </div>
-
-        <!-- TRUST BAR (keep it inside hero-left) -->
-        <div class="trust-bar" aria-label="Partner aligned with">
-          <span class="trust-label">Partner-aligned with</span>
-          <span class="trust-item">AWS</span>
-          <span class="trust-dot" aria-hidden="true"></span>
-          <span class="trust-item">SentinelOne</span>
-          <span class="trust-dot" aria-hidden="true"></span>
-          <span class="trust-item">Solo.io</span>
-        </div>
-      </div>
-
-        <aside class="card pad">
-          <h2 style="margin:6px 0 10px;">Executive Review</h2>
-          <p class="small" style="margin:0 0 12px;">
-            A 30-minute conversation designed for AI-enabled cloud-native organizations with growing operational complexity.
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="pill">Enterprise AI Platforms • AI Security • Sovereign Cloud • GPU Delivery</span>
+          <h1>
+            <span class="gradient-text">Enterprise AI platforms</span>
+            built for security, scale, and operational trust.
+          </h1>
+          <p class="lead">
+            Kubewize helps enterprises design, secure, and operationalize AI platforms across infrastructure, AI security, GPU deployment, and sovereign cloud environments. We partner with organizations that need more than experimentation—they need governed systems that can perform in the real world.
           </p>
-
-          <!-- Lightweight qualification form -->
-          <form class="form" action="contact.html#review" method="get">
-            <label class="label" for="company">Company</label>
-            <input class="input" id="company" name="company" placeholder="Company name" required />
-
-            <label class="label" for="role">Role</label>
-            <input class="input" id="role" name="role" placeholder="CISO, VP Security, CTO..." required />
-
-            <label class="label" for="size">Company size</label>
-            <select class="input" id="size" name="size" required>
-              <option value="" disabled selected>Select</option>
-              <option>26–50</option>
-              <option>51–200</option>
-              <option>200+</option>
-              <option>1–25</option>
-            </select>
-
-            <label class="label" for="challenge">Primary challenge</label>
-            <input class="input" id="challenge" name="challenge" placeholder="Alert fatigue, AI surface expansion, automation..." required />
-
-            <label class="label" for="email">Work email</label>
-            <input class="input" id="email" name="email" type="email" placeholder="name@company.com" required />
-
-            <button class="btn btn-primary" type="submit">Continue to scheduling</button>
-
-            <p class="small" style="margin:2px 0 0;">
-              Prefer email? <a href="contact.html">Contact us</a>.
-            </p>
-          </form>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <hr class="sep" />
-
-  <section class="section">
-    <div class="container">
-      <h2>Core Capabilities</h2>
-      <p>Four pillars that reduce alert fatigue, improve detection quality, and accelerate response.</p>
-
-      <div class="grid-3">
-        <div class="card feature">
-          <div class="icon teal" aria-hidden="true"></div>
-          <h3>Autonomous Cloud-Native Security</h3>
-          <p>Runtime visibility, policy guardrails, and anomaly detection across cloud-native workloads.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Start a Conversation</a>
+            <a class="btn btn-secondary" href="#architecture">View Reference Architecture</a>
+          </div>
+          <div class="hero-proof">
+            <div class="proof-card"><strong>Enterprise delivery</strong><span>Structured platform execution for organizations with real operational constraints</span></div>
+            <div class="proof-card"><strong>Secure deployment</strong><span>Architecture and governance designed for high-trust AI environments</span></div>
+            <div class="proof-card"><strong>Sovereign strategy</strong><span>Controlled deployment models for regulated and jurisdiction-aware systems</span></div>
+          </div>
         </div>
-        <div class="card feature">
-          <div class="icon" aria-hidden="true"></div>
-          <h3>Detection Engineering & Signal Quality</h3>
-          <p>Structured refinement that turns noisy alerts into actionable, correlated intelligence.</p>
-        </div>
-        <div class="card feature">
-          <div class="icon purple" aria-hidden="true"></div>
-          <h3>Automation-Driven Response</h3>
-          <p>Playbook design and workflow automation to reduce dwell time and accelerate containment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-
-
-  <section class="section">
-    <div class="container">
-      <div class="card pad">
-        <div class="model">
-          <div>
-            <h2>The Kubewize Autonomous Security Model™</h2>
-            <p>
-              A unified, AI-driven framework that transforms fragmented security tooling into a cohesive defense system—built
-              around four outcomes.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-ghost" href="autonomous-security-model.html">Explore the Model</a>
-              <a class="btn" href="services.html">See Engagement Options</a>
+        <div class="hero-side">
+          <div class="diagram-card">
+            <span class="eyebrow">What Kubewize delivers</span>
+            <h3>From experimentation to trusted production deployment</h3>
+            <div class="hero-side-grid">
+              <div class="hero-item"><strong>AI application platforms</strong><span>Enterprise copilots, AI APIs, decision-support systems, and intelligent operational workflows.</span></div>
+              <div class="hero-item"><strong>GPU and orchestration layer</strong><span>Kubernetes-based compute, workload isolation, scaling, and performance-aware platform design.</span></div>
+              <div class="hero-item"><strong>Security and governance controls</strong><span>Identity, policy, observability, review workflows, and trust mechanisms for AI systems.</span></div>
+              <div class="hero-item"><strong>Sovereign cloud deployment</strong><span>Jurisdiction-aware and compliance-conscious architectures for sensitive environments.</span></div>
             </div>
           </div>
 
-          <div class="model-steps">
-            <div class="step"><strong>Visibility</strong><span>Continuous telemetry to eliminate blind spots.</span></div>
-            <div class="step"><strong>Intelligence</strong><span>AI-assisted correlation + detection engineering clarity.</span></div>
-            <div class="step"><strong>Response</strong><span>Automated and guided containment workflows.</span></div>
-            <div class="step"><strong>Resilience</strong><span>Guardrails and continuous improvement over time.</span></div>
+          <div class="process-card">
+            <span class="eyebrow">Operating model</span>
+            <h3>How Kubewize works</h3>
+            <div class="hero-side-grid">
+              <div class="process-item"><strong>Strategy first</strong><span>We define the right platform architecture before expensive build decisions are made.</span></div>
+              <div class="process-item"><strong>Security by design</strong><span>We integrate governance and trust controls from the beginning, not after deployment.</span></div>
+              <div class="process-item"><strong>Delivery with enablement</strong><span>We help organizations build capability, not just implement isolated solutions.</span></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="cta">
-        <h3>Ready to scale security operations for AI-driven complexity?</h3>
-        <p>Start with a strategic review to identify detection, automation, and operating model gaps.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="contact.html#review">Schedule a Strategic Security Review</a>
-          <a class="btn" href="contact.html">Contact</a>
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Capabilities</span>
+            <h2>Capabilities for secure, scalable enterprise AI</h2>
+          </div>
+          <p>
+            Kubewize delivers across AI infrastructure, AI security, sovereign cloud, and GPU platform strategy—helping organizations build systems that are resilient, governed, and operationally sound.
+          </p>
+        </div>
+        <div class="grid-4">
+          <article class="service-card">
+            <h3>AI infrastructure platforms</h3>
+            <p>Cloud-native platform design for AI systems with GPU compute, orchestration, and scalable service layers.</p>
+            <div class="tags"><span class="tag">Cloud-native AI</span><span class="tag">Platform design</span></div>
+          </article>
+          <article class="service-card">
+            <h3>GPU and LLM deployment</h3>
+            <p>Production-grade deployment of AI services with model serving, scaling strategy, and utilization-aware performance design.</p>
+            <div class="tags"><span class="tag">GPU delivery</span><span class="tag">Model serving</span></div>
+          </article>
+          <article class="service-card">
+            <h3>AI security and governance</h3>
+            <p>Architecture patterns for secure AI adoption with policy enforcement, access controls, telemetry, and trusted workflows.</p>
+            <div class="tags"><span class="tag">Governance</span><span class="tag">Trust</span></div>
+          </article>
+          <article class="service-card">
+            <h3>Sovereign cloud strategy</h3>
+            <p>Deployment models for regulated and high-trust environments where data control and jurisdiction matter deeply.</p>
+            <div class="tags"><span class="tag">Sovereign cloud</span><span class="tag">Compliance</span></div>
+          </article>
         </div>
       </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Reference architecture</span>
+            <h2>A structured architecture for trusted AI platforms</h2>
+          </div>
+          <p>
+            Kubewize integrates infrastructure, security, governance, and cloud strategy into a unified architecture model so AI systems can be built for performance, control, and long-term operational reliability.
+          </p>
+        </div>
+        <div class="architecture-grid">
+          <div class="diagram-card">
+            <div class="architecture-diagram">
+              <div class="lane"><strong>Business and mission layer</strong><span>Enterprise workflows, AI-assisted operations, decision support, and customer-facing services.</span></div>
+              <div class="lane"><strong>AI control plane</strong><span>Identity, access policy, orchestration, rate controls, routing, and auditability.</span></div>
+              <div class="lane"><strong>Model and inference services</strong><span>Serving, fallback models, autoscaling, workload shaping, and lifecycle control.</span></div>
+              <div class="lane"><strong>GPU and cloud foundation</strong><span>Compute pools, orchestration, workload isolation, and sovereignty-aware deployment choices.</span></div>
+              <div class="lane"><strong>Trust and telemetry layer</strong><span>Logs, traces, cost visibility, performance monitoring, and governance evidence.</span></div>
+            </div>
+          </div>
+          <div>
+            <div class="quote-card">
+              <p>
+                Enterprise AI platforms succeed when performance, security, governance, and operating discipline are designed together—not treated as separate workstreams.
+              </p>
+              <p>
+                That is the difference between a promising prototype and a system an organization can actually trust, scale, and manage over time.
+              </p>
+            </div>
+            <div class="metric-band">
+              <div class="card"><strong>Security</strong><p>Identity-aware service exposure, policy controls, and trusted operational pathways.</p></div>
+              <div class="card"><strong>Sovereignty</strong><p>Cloud decisions aligned to residency, regulation, and infrastructure control.</p></div>
+              <div class="card"><strong>Scalability</strong><p>GPU-aware platforms that grow without losing clarity, governance, or performance.</p></div>
+              <div class="card"><strong>Resilience</strong><p>Observability, rollout discipline, and operating models built for real production conditions.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Services</span>
+            <h2>How Kubewize delivers enterprise AI platforms</h2>
+          </div>
+          <p>
+            We work across strategy, architecture, security, and enablement to help organizations move from AI ambition to operational execution.
+          </p>
+        </div>
+        <div class="process-grid">
+          <article class="process-card">
+            <h3>Architecture & platform strategy</h3>
+            <p>Reference architectures, operating models, decision frameworks, and planning for secure AI adoption.</p>
+          </article>
+          <article class="process-card">
+            <h3>Security & governance design</h3>
+            <p>Access controls, trust boundaries, observability patterns, and review mechanisms for AI systems.</p>
+          </article>
+          <article class="process-card">
+            <h3>Platform implementation & enablement</h3>
+            <p>Structured delivery support, internal team enablement, and pathways to long-term operational capability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engagements">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Engagements</span>
+            <h2>Representative enterprise engagements</h2>
+          </div>
+          <p>
+            Our work reflects the real constraints of enterprise AI: scalability, control, governance, performance, and stakeholder trust.
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="engagement-card">
+            <div class="engagement-top"><div><span class="eyebrow">Engagement 01</span><h3>Enterprise GPU-backed AI platform</h3></div><span class="tag">Platform</span></div>
+            <p>Designed a Kubernetes-based AI platform for secure model serving, observability, and operational readiness.</p>
+            <ul>
+              <li>Reference architecture for enterprise AI delivery</li>
+              <li>GPU-aware serving and orchestration strategy</li>
+              <li>Governance and trust controls built into the platform model</li>
+            </ul>
+          </article>
+          <article class="engagement-card">
+            <div class="engagement-top"><div><span class="eyebrow">Engagement 02</span><h3>Secure AI serving and cost discipline</h3></div><span class="tag">Optimization</span></div>
+            <p>Built a serving strategy centered on workload shaping, telemetry, caching, and performance-aware cost control.</p>
+            <ul>
+              <li>Balanced serving efficiency with enterprise security needs</li>
+              <li>Strengthened telemetry and operating visibility</li>
+              <li>Improved sustainability of production AI operations</li>
+            </ul>
+          </article>
+          <article class="engagement-card">
+            <div class="engagement-top"><div><span class="eyebrow">Engagement 03</span><h3>Sovereign deployment blueprint</h3></div><span class="tag">Sovereignty</span></div>
+            <p>Created a deployment model for environments requiring stronger control over placement, access, and governance boundaries.</p>
+            <ul>
+              <li>Jurisdiction-aware cloud strategy</li>
+              <li>Infrastructure control for sensitive workloads</li>
+              <li>Governance aligned to trust and regulatory posture</li>
+            </ul>
+          </article>
+          <article class="engagement-card">
+            <div class="engagement-top"><div><span class="eyebrow">Engagement 04</span><h3>AI security workflow modernization</h3></div><span class="tag">Security</span></div>
+            <p>Mapped AI-assisted analysis and operational workflows into secure, reviewable, and production-ready delivery patterns.</p>
+            <ul>
+              <li>Human oversight and review built into execution</li>
+              <li>Safer adoption of AI in higher-consequence workflows</li>
+              <li>Clearer path from experimentation to trusted usage</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="industries">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Industries & environments</span>
+            <h2>Where Kubewize delivers the most impact</h2>
+          </div>
+          <p>
+            We work with organizations operating in environments where trust, control, resilience, and performance are all business-critical.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="industry-card"><h3>Regulated enterprises</h3><p>AI systems for organizations that require stronger governance, auditability, controlled data exposure, and secure operational design.</p></article>
+          <article class="industry-card"><h3>Public sector & high-trust environments</h3><p>Deployment strategies for organizations where sovereignty, resilience, and infrastructure control are strategic requirements.</p></article>
+          <article class="industry-card"><h3>AI-enabled security operations</h3><p>Operational environments where AI must augment teams without compromising reviewability, trust, or platform integrity.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="partners">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Strategic partnerships</span>
+            <h2>Aligned to leading cloud and cybersecurity ecosystems</h2>
+          </div>
+          <p>
+            Kubewize works across leading cloud, platform, and security ecosystems to help clients implement AI systems with stronger technical and operational foundations.
+          </p>
+        </div>
+        <div class="partner-grid">
+          <div class="partner-tile">AWS</div>
+          <div class="partner-tile">SentinelOne</div>
+          <div class="partner-tile">Solo.io</div>
+          <div class="partner-tile">Kubernetes</div>
+          <div class="partner-tile">OpenClaw</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Insights</span>
+            <h2>Perspectives on AI infrastructure, security, and sovereign cloud</h2>
+          </div>
+          <p>
+            We publish practical thinking on the architectures, controls, and operating models required to build AI platforms that organizations can trust at scale.
+          </p>
+        </div>
+        <div class="insight-grid">
+          <article class="insight-card"><span class="eyebrow">Insight</span><h3>Why sovereign cloud is becoming central to enterprise AI</h3><p>How trust, control, and jurisdiction shape infrastructure decisions for modern AI systems.</p></article>
+          <article class="insight-card"><span class="eyebrow">Insight</span><h3>AI security is now a platform architecture problem</h3><p>Why AI safety, reviewability, and governance are inseparable from infrastructure design.</p></article>
+          <article class="insight-card"><span class="eyebrow">Insight</span><h3>What GPU platforms need beyond raw compute</h3><p>Performance, workload governance, observability, and cost discipline in production AI environments.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Build AI platforms that are secure, scalable, and trusted</h2>
+          </div>
+          <p>
+            Kubewize helps organizations move from AI experimentation to enterprise-ready systems with the right infrastructure, security posture, and operating model in place.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>How we engage</h3>
+            <div class="contact-list">
+              <div class="contact-item"><strong>Advisory and architecture</strong><span>We define the platform model, security posture, and execution path before implementation complexity compounds.</span></div>
+              <div class="contact-item"><strong>Structured delivery support</strong><span>We help teams translate architecture into operational execution with clearer priorities and stronger controls.</span></div>
+              <div class="contact-item"><strong>Enablement and long-term capability</strong><span>We design for internal adoption, team readiness, and sustainable platform operations beyond the initial build.</span></div>
+            </div>
+          </div>
+          <aside class="cta">
+            <h3>Talk to Kubewize</h3>
+            <p class="small">
+              Whether you need architecture guidance, a platform strategy, or a delivery partner for secure AI adoption, Kubewize is built to help enterprise teams move with clarity and confidence.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:hello@kubewize.cloud">Contact Us</a>
+              <a class="btn btn-secondary" href="#engagements">View Engagements</a>
+            </div>
+            <div class="tags">
+              <span class="tag">Enterprise AI partner</span>
+              <span class="tag">Secure deployment</span>
+              <span class="tag">Sovereign cloud</span>
+              <span class="tag">GPU platforms</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Kubewize</strong><br />
+        <span class="small">Enterprise AI Infrastructure • AI Security • Sovereign Cloud • Platform Delivery</span>
+      </div>
+      <div class="small">© 2026 Kubewize. All rights reserved.</div>
     </div>
-  </section>
-
-</main>
-
-<!--FOOTER-->
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-  });
-</script>
-
-
+  </footer>
 </body>
 </html>
 
