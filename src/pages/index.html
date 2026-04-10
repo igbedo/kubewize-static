@@ -524,17 +524,48 @@
   display: flex;
   flex-direction: column;
 }
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+}
+
+.brand strong {
+  font-size: 1.06rem;
+}
+
+.brand span {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a href="#top" class="brand">
-  <img class="brand-mark" src="assets/img/logo.png" alt="Kubewize logo" />
-  <span class="brand-text">
+   <a href="#top" class="brand-wrap">
+  <img src="assets/img/logo.png" alt="Kubewize logo" class="brand-logo" />
+  <div class="brand">
     <strong>Kubewize</strong>
     <span>Enterprise AI Infrastructure, Security & Sovereign Cloud</span>
-  </span>
+  </div>
 </a>
       <nav class="nav-links">
         <a href="#capabilities">Capabilities</a>
