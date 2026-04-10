@@ -811,52 +811,72 @@
               Use this form to reach Kubewize about AI infrastructure, AI security, sovereign cloud strategy, or delivery support. Replace the sample Formspree endpoint below with your real endpoint before publishing.
             </p>
             <form class="contact-form" action="https://formspree.io/f/mkgpdbka" method="POST">
-            <input type="hidden" name="_next" value="https://kubewize.cloud/thank-you.html" />
-              <div class="form-row">
-                <label>
-                  Name
-                  <input type="text" name="name" placeholder="Your name" required />
-                </label>
-                <label>
-                  Work email
-                  <input type="email" name="email" placeholder="you@company.com" required />
-                </label>
-              </div>
+             
+  <div class="form-row">
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Your name" required />
+    </label>
+    <label>
+      Work email
+      <input type="email" name="email" placeholder="you@company.com" required />
+    </label>
+  </div>
 
-              <div class="form-row">
-                <label>
-                  Company
-                  <input type="text" name="company" placeholder="Company name" />
-                </label>
-                <label>
-                  Inquiry type
-                  <select name="inquiry_type">
-                    <option value="AI Infrastructure">AI Infrastructure</option>
-                    <option value="AI Security">AI Security</option>
-                    <option value="Sovereign Cloud">Sovereign Cloud</option>
-                    <option value="Workshop or Advisory">Workshop or Advisory</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </label>
-              </div>
+  <div class="form-row">
+    <label>
+      Company
+      <input type="text" name="company" placeholder="Company name" />
+    </label>
+    <label>
+      Inquiry type
+      <select name="inquiry_type">
+        <option value="AI Infrastructure">AI Infrastructure</option>
+        <option value="AI Security">AI Security</option>
+        <option value="Sovereign Cloud">Sovereign Cloud</option>
+        <option value="Workshop or Advisory">Workshop or Advisory</option>
+        <option value="Other">Other</option>
+      </select>
+    </label>
+  </div>
 
-              <label>
-                Message
-                <textarea name="message" placeholder="Tell us about your goals, environment, and what kind of support you need." required></textarea>
-              </label>
+  <label>
+    Message
+    <textarea name="message" placeholder="Tell us about your goals, environment, and what kind of support you need." required></textarea>
+  </label>
 
-              <input type="hidden" name="_subject" value="New Kubewize website inquiry" />
-              <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="New Kubewize website inquiry" />
 
-              <div class="form-actions">
-                <button class="btn btn-primary" type="submit">Send Inquiry</button>
-                <span class="small">Responses will go to your Formspree-connected inbox.</span>
-              </div>
-            </form>
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit">Send Inquiry</button>
+    <span class="small">Responses will go to your Formspree-connected inbox.</span>
+  </div>
+</form>
 
-            <p class="form-help">
-              After you create your Formspree form, replace <strong>YOUR_FORM_ID</strong> with the real ID and confirm the first submission from the verification email.
-            </p>
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      window.location.href = '/thank-you.html';
+    } else {
+      alert('There was a problem submitting your inquiry. Please try again.');
+    }
+  });
+</script>
+
           </aside>
         </div>
       </div>
