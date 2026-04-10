@@ -500,15 +500,42 @@
       }
       .section-heading { flex-direction: column; align-items: start; }
     }
+
+    .brand {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  line-height: 1.08;
+  letter-spacing: .01em;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: .35rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
       <a href="#top" class="brand">
-        <strong>Kubewize</strong>
-        <span>Enterprise AI Infrastructure, Security & Sovereign Cloud</span>
-      </a>
+  <img class="brand-mark" src="assets/logo.png" alt="Kubewize logo" />
+  <span class="brand-text">
+    <strong>Kubewize</strong>
+    <span>Enterprise AI Infrastructure, Security & Sovereign Cloud</span>
+  </span>
+</a>
       <nav class="nav-links">
         <a href="#capabilities">Capabilities</a>
         <a href="#architecture">Architecture</a>
@@ -810,8 +837,10 @@
             <p class="small">
               Use this form to reach Kubewize about AI infrastructure, AI security, sovereign cloud strategy, or delivery support. Replace the sample Formspree endpoint below with your real endpoint before publishing.
             </p>
-            <form class="contact-form" action="https://formspree.io/f/xgopjjqg" method="POST">
-             
+
+
+
+<form id="contact-form" class="contact-form" action="https://formspree.io/f/xgopjjqg" method="POST">
   <div class="form-row">
     <label>
       Name
@@ -851,31 +880,60 @@
     <button class="btn btn-primary" type="submit">Send Inquiry</button>
     <span class="small">Responses will go to your Formspree-connected inbox.</span>
   </div>
+
+  <p id="form-status" class="form-help" aria-live="polite"></p>
 </form>
 
 <script>
-  const form = document.getElementById('contact-form');
+  (function () {
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
+    if (!form || !status) return;
 
-    const formData = new FormData(form);
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
 
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: {
-        Accept: 'application/json'
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) submitButton.disabled = true;
+
+      status.textContent = "Sending your inquiry...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_) {}
+
+        if (response.ok) {
+          form.reset();
+          status.textContent = "Thank you. Redirecting...";
+          window.location.href = "/thank-you.html";
+          return;
+        }
+
+        if (data.errors && Array.isArray(data.errors) && data.errors.length > 0) {
+          status.textContent = data.errors.map(err => err.message).join(" ");
+        } else {
+          status.textContent = "There was a problem submitting your inquiry. Please try again.";
+        }
+      } catch (error) {
+        status.textContent = "Network error. Please check your connection and try again.";
+      } finally {
+        if (submitButton) submitButton.disabled = false;
       }
     });
-
-    if (response.ok) {
-      window.location.href = '/thank-you.html';
-    } else {
-      alert('There was a problem submitting your inquiry. Please try again.');
-    }
-  });
+  })();
 </script>
+
 
           </aside>
         </div>
